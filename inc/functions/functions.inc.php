@@ -13,7 +13,7 @@ function display_message(){
 function display_letter_filters($filter){  
     echo '<span class="mr-3">Filter by <strong>Last Name</strong></span>';
  
-    $letters = range('A','Z');
+    $letters = range('A','Z'); #this creates the A - Z search menu
 
     for($i=0 ; $i < count($letters) ; $i++){ 
         if ($filter == $letters[$i]) {
@@ -48,7 +48,7 @@ function display_record_table($result){
     echo '</div>';
 }
 
-
+// Creates an array of errors
 function display_error_bucket($error_bucket){
     echo '<p>The following errors were deteced:</p>';
     echo '<div class="pt-4 alert alert-warning" role="alert">';
