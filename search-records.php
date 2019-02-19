@@ -17,6 +17,8 @@ require 'inc/app/config.inc.php';
                     // $sql = "SELECT * FROM student WHERE student_id LIKE '%val%' or field2 LIKE '%val%'
                     $result = $db->query($sql);
 
+                    // if there are no search results it displays no record found else it displays the search results
+
                     if ($result->num_rows == 0) {
                         echo "<p class=\"display-4 mt-4 text-center\">No results found for \"<strong>{$_POST['search']}</strong>\"</p>";
                         echo '<img class="mx-auto d-block mt-4" src="img/frown.png" alt="A sad face">';
@@ -26,6 +28,8 @@ require 'inc/app/config.inc.php';
                         echo "<h2 class=\"mt-4 text-center\">$result->num_rows record(s) found for \"" . $_POST['search'] . '"</h2>';
                         display_record_table($result);
                     }
+
+                    // if the user enters a blank search field it will display I can't search if you don't give me something to search for.
                 } else {
                     echo "<p class=\"display-4 mt-4 text-center\">I can't search if you don't give<br>me something to search for.</p>";
                     echo '<img class="mx-auto d-block mt-4" src="img/nosmile.png" alt="A face with no smile">';

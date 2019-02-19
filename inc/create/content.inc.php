@@ -8,6 +8,8 @@ $error_bucket = []; #creates the error bucket array
 
 // http://php.net/manual/en/mysqli.real-escape-string.php
 
+// checks the data entered into the form and looks for errors. 
+
 if($_SERVER['REQUEST_METHOD']=="POST"){
     // First insure that all required fields are filled in
     if (empty($_POST['first'])) {
@@ -43,6 +45,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $phone = $db->real_escape_string($_POST['phone']);
     }
 
+    // If there are no errors it will insert the data into the db table
     // If we have no errors than we can try and insert the data
     if (count($error_bucket) == 0) {
         // Time for some SQL
@@ -52,6 +55,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         // comment in for debug of SQL
         // echo $sql;
 
+        // if there is no result display error message, else display i save that new record for you and then reset field in the form
         $result = $db->query($sql);
         if (!$result) {
             echo '<div class="alert alert-danger" role="alert">

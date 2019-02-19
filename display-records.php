@@ -2,6 +2,7 @@
 
 $pageTitle = "Record Management";
 require 'inc/layout/header.inc.php'; 
+// creates a bootstrap container field and displays the content
 ?>
 <div class="container-fluid">
     <div class="row">

@@ -31,3 +31,5 @@
     </form>
   </div>
 </nav>
+
+<!--creates the navbar -->

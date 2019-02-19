@@ -1,6 +1,7 @@
 <?php // Filename: create-record.php
 $pageTitle = "Create Record";
 require 'inc/layout/header.inc.php'; 
+// loads the create records form.
 ?>
 
 <div class="container">
@@ -8,9 +9,10 @@ require 'inc/layout/header.inc.php';
 		<div class="col-lg-12">
 			<h1>Create a New Record</h1>
 			<?php require __DIR__ .'/inc/create/content.inc.php'; ?>
-			<?php require __DIR__ .'/inc/create/form.inc.php' ?>
+			<?php require __DIR__ .'/inc/create/form.inc.php' ?> 
 		</div>
     </div>
 </div>
 
 <?php require 'inc/layout/footer.inc.php'; ?>
+

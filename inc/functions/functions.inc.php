@@ -1,5 +1,6 @@
 <?php // Filename: function.inc.php
 
+//this function is the message bar function on the display records page
 function display_message(){
     if (isset($_GET['message'])) {
         $message = $_GET['message'];
@@ -9,7 +10,7 @@ function display_message(){
     }
 }
 
-
+// this function creates the A - B search bar on the display record page
 function display_letter_filters($filter){  
     echo '<span class="mr-3">Filter by <strong>Last Name</strong></span>';
  
@@ -26,7 +27,7 @@ function display_letter_filters($filter){
     echo '<a class="text-secondary p-2 mr-2 bg-success text-light border rounded" href="?clearfilter" title="Reset Filter">Reset</a>&nbsp;&nbsp;';
 }
 
-
+// displays records from the database
 function display_record_table($result){
     echo '<div class="table-responsive">';
     echo "<table class=\"table table-striped table-hover table-sm mt-4\">";

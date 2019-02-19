@@ -13,3 +13,5 @@
 <body>
 <?php require 'inc/app/config.inc.php';?> 
 <?php require 'inc/layout/navbar.inc.php';?> 
+
+<!-- loads configures html, loads bootstrap framework. -->

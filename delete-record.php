@@ -16,4 +16,6 @@ if(isset($_GET['id'])){
         echo '<h1>Dude(tte). Please do not play with our site. GO AWAY!</h1>';
     }
 }
+// creates an array and deletes the record and display either a success message or a do not play with our site message.
+
 ?>

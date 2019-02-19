@@ -5,6 +5,8 @@
 Scroll down the page
 http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary
 -->
+
+<!-- this is the form for creating a record -->
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
     <label class="col-form-label" for="first">First Name </label>
     <input class="form-control" type="text" id="first" name="first" value="<?php echo (isset($first) ? $first: '');?>">

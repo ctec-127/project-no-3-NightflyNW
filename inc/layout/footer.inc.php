@@ -5,9 +5,13 @@
     </div>
 </div>
 
+<!--loads the footer, diplays the info from the config file and loads javascript and closes the html tag. -->
+
 <!-- jQuery -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
