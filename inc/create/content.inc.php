@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         #$last = $_POST['last'];
         $last = $db->real_escape_string($_POST['last']);
     }
-    if (empty($_POST['id'])) {
+    if (empty($_POST['student_id'])) {
         array_push($error_bucket,"<p>A student ID is required.</p>");
     } else {
         #$id = $_POST['id'];
@@ -44,13 +44,31 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         #$phone = $_POST['phone'];
         $phone = $db->real_escape_string($_POST['phone']);
     }
+    if (empty($_POST['gpa'])) {
+        array_push($error_bucket,"<p>A gpa number is required.</p>");
+    } else {
+        #$phone = $_POST['phone'];
+        $gpa = $db->real_escape_string($_POST['gpa']);
+    }
+    if (empty($_POST['financial_aid'])) {
+        array_push($error_bucket,"<p>A financial_aid option is required.</p>");
+    } else {
+        #$phone = $_POST['phone'];
+        $financial_aid = $db->real_escape_string($_POST['financial_aid']);
+    }
+    if (empty($_POST['degree_program'])) {
+        array_push($error_bucket,"<p>A degree program is required.</p>");
+    } else {
+        #$phone = $_POST['phone'];
+        $degree_program = $db->real_escape_string($_POST['degree_program']);
+    }
 
     // If there are no errors it will insert the data into the db table
     // If we have no errors than we can try and insert the data
     if (count($error_bucket) == 0) {
         // Time for some SQL
-        $sql = "INSERT INTO $db_table (first_name,last_name,student_id,email,phone) ";
-        $sql .= "VALUES ('$first','$last',$id,'$email','$phone')";
+        $sql = "INSERT INTO $db_table (first_name,last_name,student_id,email,phone,gpa,financial_aid,degree_program) ";
+        $sql .= "VALUES ('$first','$last',$student_id,'$email','$phone','$gpa','$financial_aid','$degree_program')";
 
         // comment in for debug of SQL
         // echo $sql;
@@ -67,9 +85,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
           </div>';
             unset($first);
             unset($last);
-            unset($id);
+            unset($student_id);
             unset($email);
             unset($phone);
+            unset($gpa);
+            unset($financial_aid);
+            unset($$degree_program);
+            
         }
     } else {
         display_error_bucket($error_bucket);

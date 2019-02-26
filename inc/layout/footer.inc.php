@@ -3,6 +3,7 @@
     <div class="col-lg-12">
         <p class="text-center mt-4"><?php echo '<span class="font-weight-bold">' . $app_name . ' - Version ' . $app_version . "</span><br>" . $app_copyright;?></p>
     </div>
+    
 </div>
 
 <!--loads the footer, diplays the info from the config file and loads javascript and closes the html tag. -->

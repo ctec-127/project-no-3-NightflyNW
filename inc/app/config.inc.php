@@ -1,7 +1,7 @@
 <?php // Filename: config.inc.php
     
 // copyright
-$app_copyright = '&copy; 2019 - Scott Altom';
+$app_copyright = '&copy; Copyright 2019; - Scott Altom';
 // version
 $app_version = 0.1;
 // app name
