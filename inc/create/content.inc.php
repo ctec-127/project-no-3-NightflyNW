@@ -9,6 +9,8 @@ $error_bucket = []; #creates the error bucket array
 // http://php.net/manual/en/mysqli.real-escape-string.php
 
 // checks the data entered into the form and looks for errors. 
+$yes = "";
+$no = "";
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
     // First insure that all required fields are filled in
@@ -30,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         array_push($error_bucket,"<p>A student ID is required.</p>");
     } else {
         #$id = $_POST['id'];
-        $id = $db->real_escape_string($_POST['id']);
+        $student_id = $db->real_escape_string($_POST['student_id']);
     }
     if (empty($_POST['email'])) {
         array_push($error_bucket,"<p>An email address is required.</p>");
@@ -50,16 +52,23 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         #$phone = $_POST['phone'];
         $gpa = $db->real_escape_string($_POST['gpa']);
     }
-    if (empty($_POST['financial_aid'])) {
+     if (!isset($_POST['financial_aid'])) {
         array_push($error_bucket,"<p>A financial_aid option is required.</p>");
-    } else {
-        #$phone = $_POST['phone'];
-        $financial_aid = $db->real_escape_string($_POST['financial_aid']);
+     } else {
+            if ($_POST['financial_aid'] == 'yes') {
+                $yes = 'checked'; # set $yes to checked
+                $db_value = 1;
+            } elseif ($_POST['financial_aid'] == 'no') { # did the user click on no
+                $no = 'checked'; # set $no to checked
+                $db_value = 0;
+            }
+
+            $financial_aid = $db->real_escape_string($_POST['financial_aid']);
     }
-    if (empty($_POST['degree_program'])) {
+
+    if ($_POST['degree_program'] == "Choose Your Degree Program") {
         array_push($error_bucket,"<p>A degree program is required.</p>");
     } else {
-        #$phone = $_POST['phone'];
         $degree_program = $db->real_escape_string($_POST['degree_program']);
     }
 
@@ -90,7 +99,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             unset($phone);
             unset($gpa);
             unset($financial_aid);
-            unset($$degree_program);
+            unset($degree_program);
             
         }
     } else {
