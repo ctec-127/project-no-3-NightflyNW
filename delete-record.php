@@ -1,7 +1,7 @@
 <?php // Filename: delete-record.php
 
-require __DIR__ . "/inc/db/mysqli_connect.inc.php";
-require __DIR__ . "/inc/app/config.inc.php";
+require_once __DIR__ . "/inc/db/mysqli_connect.inc.php";
+require_once __DIR__ . "/inc/app/config.inc.php";
 
 // check to see if id is in the query string
 if(isset($_GET['id'])){
@@ -16,6 +16,4 @@ if(isset($_GET['id'])){
         echo '<h1>Dude(tte). Please do not play with our site. GO AWAY!</h1>';
     }
 }
-// creates an array and deletes the record and display either a success message or a do not play with our site message.
-
 ?>

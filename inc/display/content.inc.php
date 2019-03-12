@@ -1,7 +1,6 @@
-<?php // Filename: connect.inc.php
+<?php // Filename: content.inc.php
 
 require __DIR__ . "/../db/mysqli_connect.inc.php";
-require __DIR__ . "/../functions/functions.inc.php";
 
 $orderby = 'last_name';
 $filter = '';
@@ -18,7 +17,6 @@ if (isset($_GET['clearfilter'])){
     $filter = '';
 }
 
-// displays the database and starts with a standard query that sorts the data by last_name 
 $sql = "SELECT * FROM $db_table WHERE last_name LIKE '$filter%' ORDER BY $orderby ASC";
 
 $result = $db->query($sql);

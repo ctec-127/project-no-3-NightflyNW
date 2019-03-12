@@ -1,10 +1,9 @@
 <?php // Filename: search-records.php
 
 $pageTitle = "Search Records";
-require 'inc/layout/header.inc.php';
-require 'inc/db/mysqli_connect.inc.php';
-require 'inc/functions/functions.inc.php';
-require 'inc/app/config.inc.php';
+require_once 'inc/layout/header.inc.php';
+require_once 'inc/db/mysqli_connect.inc.php';
+require_once 'inc/app/config.inc.php';
 ?>
 
 <div class="container">
@@ -13,12 +12,10 @@ require 'inc/app/config.inc.php';
         <?php 
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if(!empty($_POST['search'])){
-                    $sql = "SELECT * FROM $db_table WHERE " . '"' . $_POST["search"] . '"' . " IN (student_id, first_name, last_name, email, phone,gpa,financial_aid,degree_program) ORDER BY last_name ASC";
-                    // added gpa,financial_aid,degree_program to search 
-                    // $sql = "SELECT * FROM student WHERE student_id LIKE '%val%' or field2 LIKE '%val%'
-                    $result = $db->query($sql);
 
-                    // if there are no search results it displays no record found else it displays the search results
+                    $sql = "SELECT * FROM $db_table WHERE " . '"' . $_POST["search"] . '"' . " IN (student_id, first_name, last_name, email, phone, degree_program, gpa, financial_aid) ORDER BY last_name ASC";
+
+                    $result = $db->query($sql);
 
                     if ($result->num_rows == 0) {
                         echo "<p class=\"display-4 mt-4 text-center\">No results found for \"<strong>{$_POST['search']}</strong>\"</p>";
@@ -29,8 +26,6 @@ require 'inc/app/config.inc.php';
                         echo "<h2 class=\"mt-4 text-center\">$result->num_rows record(s) found for \"" . $_POST['search'] . '"</h2>';
                         display_record_table($result);
                     }
-
-                    // if the user enters a blank search field it will display I can't search if you don't give me something to search for.
                 } else {
                     echo "<p class=\"display-4 mt-4 text-center\">I can't search if you don't give<br>me something to search for.</p>";
                     echo '<img class="mx-auto d-block mt-4" src="img/nosmile.png" alt="A face with no smile">';
@@ -41,4 +36,4 @@ require 'inc/app/config.inc.php';
     </div>
 </div>
 
-<?php require 'inc/layout/footer.inc.php';?>
+<?php require_once 'inc/layout/footer.inc.php';?>
