@@ -1,4 +1,4 @@
-<?php // Filename: form.inc.php ?>
+<?php // Filename: searchform.inc.php ?>
 
 <!-- Note the use of sticky fields below -->
 <!-- Note the use of the PHP Ternary operator
@@ -6,13 +6,12 @@ Scroll down the page
 http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary
 -->
 
-<!-- this is the form for creating a record -->
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
-    <!-- Start input hidden id automatically created -->
-    <!-- <label class="col-form-label" for="id">ID </label>
-    <input class="form-control" type="text" id="id" name="id" value="<?php echo (isset($id) ? $id: '');?>">
-    <br> -->
-    <!-- End input hidden id automatically created -->
+<form action="search-records.php" method="POST" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search by First Name</button>
+</form>
+
+    
     <label class="col-form-label" for="first">First Name </label>
     <input class="form-control" type="text" id="first" name="first" value="<?php echo (isset($first) ? $first: '');?>">
     <br>
@@ -71,6 +70,6 @@ http://php.net/manual/en/language.operators.comparison.php#language.operators.co
     
 
     <a href="display-records.php">Cancel</a>&nbsp;&nbsp;
-    <button class="btn btn-primary" type="submit">Save Record</button>
+    <button class="btn btn-primary" type="submit">Search Records</button>
 </form>
 

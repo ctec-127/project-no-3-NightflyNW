@@ -61,12 +61,17 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
             $financial_aid = $db->real_escape_string($_POST['financial_aid']);
     }
+    if (empty($_POST['gdate'])) {
+        array_push($error_bucket,"<p>A graduation date is required.</p>");
+    } else {
+        $gdate = $db->real_escape_string(strip_tags($_POST['grad_date']));
+    }
 
     // If we have no errors than we can try and insert the data
     if (count($error_bucket) == 0) {
         // Time for some SQL
-        $sql = "INSERT INTO $db_table (first_name,last_name,student_id,email,phone,degree_program,gpa,financial_aid) ";
-        $sql .= "VALUES ('$first','$last',$sid,'$email','$phone','$degree_program','$gpa','$financial_aid')";
+        $sql = "INSERT INTO $db_table (first_name,last_name,student_id,email,phone,degree_program,gpa,financial_aid,grad_date) ";
+        $sql .= "VALUES ('$first','$last',$sid,'$email','$phone','$degree_program','$gpa','$financial_aid','$grad_date')";
 
         // comment in for debug of SQL
         // echo $sql;
@@ -88,6 +93,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             unset($degree_program);
             unset($gpa);
             unset($financial_aid);
+            unset($grad_date);
         }
     } else {
         display_error_bucket($error_bucket);

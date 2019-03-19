@@ -56,7 +56,13 @@ http://php.net/manual/en/language.operators.comparison.php#language.operators.co
         No
     </label>
     <!-- End input radio buttons-->
-     <br><br>
+     <br>
+     <label class="col-form-label" for="grad_date">Graduation Date </label>
+        <input class="form-control" type="date" id="grad_date" name="grad_date" value="<?php echo (isset($grad_date) ? $grad_date: '');?>"">
+    <br>
+    <br>
+     
+
 
     <a href="display-records.php">Cancel</a>&nbsp;&nbsp;
     <button class="btn btn-primary" type="submit">Save Record</button>

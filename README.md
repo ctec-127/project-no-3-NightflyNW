@@ -91,3 +91,13 @@ The **inc** folders and **subfolders** have the following sub-folders:
 - **layout** contains the files for page layout such as the **header**, **footer** and top **navigation**.
 - **update** contains a file that gets included in the **update-record.php** page.
 - **shared** contains a file that has the code for the create/update form.
+
+
+
+
+Misc Code
+<!-- Start input Date Created / Time Stamp -->
+    <!-- <label class="col-form-label" for="data_created">Data Created </label>
+    <input class="<?php $d=mktime(); echo date("Y-m-d h:i:sa", $d);?>" type="text" id="data_created" name="data_created" value="<?php echo (isset($data_created) ? $data_createda: '');?>"">
+    <br> -->
+    <!-- End input Date Created / Time Stamp -->

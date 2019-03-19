@@ -65,6 +65,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
             $financial_aid = $db->real_escape_string(strip_tags($_POST['financial_aid']));
     }
+    // start graduation date
+    if (empty($_POST['grad_date'])) {
+        array_push($error_bucket,"<p>A gradutaion date is required.</p>");
+    } else {
+        $gdate = $db->real_escape_string(strip_tags($_POST['grad_date']));
+    }
+    // end graduation date
 
     
     // If we have no errors than we can try and insert the data
@@ -79,6 +86,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             degree_program='$degree_program',
             gpa='$gpa',
             financial_aid='$financial_aid',
+            grad_date='$grad_date',
              WHERE id=$id";
 
         $result = $db->query($sql);
@@ -99,6 +107,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             unset($gpa);
             unset($financial_aid);
             unset($id);
+            unset($grad_date);
         }
     } else {
         display_error_bucket($error_bucket);
@@ -121,6 +130,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $degree_program = $row['degree_program'];
         $gpa = $row['gpa'];
         $financial_aid = $row['financial_aid'];
+        $grad_date = $grad_date['grad_date'];
         
     }
 }
