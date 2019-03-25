@@ -6,8 +6,7 @@ require_once __DIR__ . "/../app/config.inc.php";
 $error_bucket = [];
 
 // checks the data entered into the form and looks for errors. 
-$yes = "";
-$no = "";
+
 
 // http://php.net/manual/en/mysqli.real-escape-string.php
 
@@ -69,7 +68,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     if (empty($_POST['grad_date'])) {
         array_push($error_bucket,"<p>A gradutaion date is required.</p>");
     } else {
-        $gdate = $db->real_escape_string(strip_tags($_POST['grad_date']));
+        $grad_date = $db->real_escape_string(strip_tags($_POST['grad_date']));
     }
     // end graduation date
 
@@ -130,7 +129,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $degree_program = $row['degree_program'];
         $gpa = $row['gpa'];
         $financial_aid = $row['financial_aid'];
-        $grad_date = $grad_date['grad_date'];
+        $grad_date = $row['grad_date'];
         
     }
 }
